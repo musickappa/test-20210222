@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+    - source: /
+      destination: /var/www/html/test-20210222
+permissions:
+    - object: /var/www/html/test-20210222
+      pattern: "**"
+      owner: apache
+      group: apache
+      mode: 755
+      type:
+        - file
+hooks:
+    BeforeInstall:
+     - location: scripts/initialize.sh
+       runas: root
